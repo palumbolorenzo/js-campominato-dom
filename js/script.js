@@ -5,25 +5,21 @@ const eleBtnHelp = document.querySelector('#btn-help');
 const eleGrid = document.querySelector('.grid');
 
 eleBtnPlay.addEventListener('click', function () {
-  eleGrid.innerHTML = ''; // pulire la griglia ad ogni cambi di livello
+  eleGrid.innerHTML = '';
 
   eleGrid.classList.remove('hidden');
   eleStartScreen.classList.add('hidden');
 
   const nCells = parseInt(eleSelectLevel.value);
-  //switch (pic);
 
   const sideSquare = Math.sqrt(nCells);
   eleGrid.style.setProperty('--sideSquare', sideSquare);
 
   for (let i = 1; i <= nCells; i++) {
-    //eleGrid.innerHTML += '<div class="cell" style=""></div>';
   
     const eleCell = document.createElement('div');
     eleCell.classList.add('cell');
     eleCell.innerHTML = i;
-    //eleCell.style.width = `calc (100% / ${sideSquare})`;
-    //eleCell.style.height = `calc (100% / ${sideSquare})`;
     eleGrid.append(eleCell);
   
     eleCell.addEventListener('click', function () {
@@ -50,14 +46,14 @@ eleBtnHelp.addEventListener('click', function (){
 // <--- random creation --->
 
 
-const eleGrid = document.querySelector('.grid');
+//const eleGrid = document.querySelector('.grid');
 
-for (let i = 0; i < 64; i++) {
+for (let i = 1; i <= 16; i++) {
   const arrRandoms = [];
 
   let needRandom = true;
   do {
-    const randomNumber = getRandomInteger(1, 64);
+    const randomNumber = getRandomInteger(1, 100);
     if (!arrRandoms.includes(randomNumber)) {
       arrRandoms.push(randomNumber);
       needRandom = false;
@@ -66,12 +62,10 @@ for (let i = 0; i < 64; i++) {
 
   const eleCell = document.createElement('div');
   eleCell.classList.add('cell');
-  if (isEven(randomNumber)) {
-    eleCell.classList.add('even');
-  } else {
-    eleCell.classList.add('odd');
+  if (needRandom) {
+    eleCell.classList.add('bomb');
   }
-  eleCell.innerHTML = randomNumber;
+  eleCell.innerHTML = needRandom;
   eleGrid.append(eleCell);
 
   eleCell.addEventListener('click', function () {

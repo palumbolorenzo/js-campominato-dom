@@ -4,6 +4,10 @@
     box-sizing: border-box;
 }
 
+html {
+    font-family: sans-serif;
+}
+
 body {
     display: flex;
     flex-direction: column;
@@ -14,26 +18,60 @@ body {
     /* flex: 1 1 0;
     display: flex; */
     height: 100%;
-    background-color: salmon;
+    background-color: #7FFFD4;
 }
 
 header {
+    height: 70px;
+    /* position: fixed;
+    top: 0;
+    right: 0;
+    left: 0; */
+    padding: 1rem;
+    background-color: white;
     flex: 0 0 auto;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: .5rem 2rem;
+    /* padding: .5rem 2rem; */
+}
+
+.btn-play {
+    text-decoration: none;
+    background-color: rgb(13, 135, 197);
+    color: white;
+    padding: .5rem 1rem;
+    border-radius: 10px;
+}
+
+.btn-help {
+    text-decoration: none;
+    background-color: rgb(13, 135, 197);
+    color: white;
+    padding: .5rem 1rem;
+    border-radius: 10px;
+}
+
+.btn-play:hover {
+    background-color: rgb(21, 90, 125);
+    cursor: pointer;
+}
+
+.btn-help:hover {
+    background-color: rgb(21, 90, 125);
+    cursor: pointer;
 }
 
 .start-screen {
     margin: auto;
+    padding: 1rem;
 }
 
 .grid {
     --sideSquare: 10;
     display: flex;
     flex-wrap: wrap;
-    margin: auto;
+    margin: 4rem auto 0;
     width: 500px;
     height: 500px;
     border: 2px solid black;
@@ -49,9 +87,43 @@ header {
 }
 
 .cell.active {
-    background-color: gold;
+    background-color: rgb(13, 135, 197);
+}
+
+.cell:hover {
+    cursor: pointer;
+}
+
+.logo {
+    height: 30px;
+    color: black;
+}
+
+.logo:hover {
+    transform: scale(1.05);
+    cursor: pointer;
+}
+
+footer {
+    height: 50px;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: white;
+    padding: 1rem;
+    display: flex;
+    align-items: center;
 }
 
 .hidden {
     display: none;
+}
+
+.fa-solid.fa-heart:hover {
+    color: red;
+}
+
+.bomb {
+    background-color: red;
 }
